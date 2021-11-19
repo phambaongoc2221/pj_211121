@@ -75,12 +75,12 @@
                             <div class="card-body ">
                                 <div style="text-align: center;" >
                                     <h4 class="card-title show_txt"> </h4>
-                                    <h3 class="card-text food-title" style="color:green;"><a href="detail?id=${s.id}" title="View Food">${s.name}</a></h3>
-                                    <p style="font-size: 20px; color: red;" class="money">${s.price} VNĐ</p>
+                                    <h3 class="card-text food-title" style="color:green;"><a href="detail?id=${s.id}" title="View Food" style="color: chocolate;text-decoration: none">${s.name}</a></h3>
+                                    <p style="font-size: 20px; color:#084298;" class="money">${s.price} VNĐ</p>
                                 </div>
 
                                     <div class="all-button" style="margin-top: 20px;"><hr>
-                                        <button  type="button" class="btn button-1 btn-success btn-cart"  style="margin-right: 15px;min-width: 100px;"><a href="add-to-cart?id=${s.id}">Thêm vào giỏ hàng</a></button>
+                                        <button  type="button" class="btn button-1 btn-danger btn-cart"  style="margin-right: 15px;min-width: 100px;"><a href="add-to-cart?id=${s.id}" style="color: white; text-decoration: none">Thêm vào giỏ hàng</a></button>
                                     </div>
 
                             </div>

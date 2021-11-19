@@ -195,7 +195,7 @@
         <label for="validationDefault02" class="form-label">Mật khẩu</label>
         <input type="text" placeholder="password" class="form-control" id="validationDefault02" value="${profile.password}" >
         <label for="validationDefault03" class="form-label">Số điện thoại</label>
-        <input type="password" placeholder="soDT" class="form-control" id="validationDefault03" value="${profile.soDT}" >
+        <input type="text" placeholder="soDT" class="form-control" id="validationDefault03" value="${profile.soDT}" >
     </div>
     <div class="col-md-4">
         <label for="validationDefaultUsername" class="form-label">Email</label>

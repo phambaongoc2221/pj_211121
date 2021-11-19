@@ -59,9 +59,7 @@
 </header>
 
 <main>
-<c:if test="${sessionScope.acc != null}">
-  <a href="/suggestion" style="text-decoration: none">Gợi ý dành cho bạn</a>
-</c:if>
+
   <div class="container pt-5">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <c:forEach items="${list}" var="o">
