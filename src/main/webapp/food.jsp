@@ -14,6 +14,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
   <title>VNFood</title>
 
 </head>
@@ -38,6 +42,29 @@
     }
 
   }
+  .container-sm{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 3px 3px 3px #aaaaaa;
+  }
+  .card-img-top{
+    margin-top: 20px;
+    height: 180px;
+
+  }
+  .slick-prev{
+    border: none;
+    font-size: 40px;
+    color: chocolate;
+    margin-right: 3px;
+
+  }
+  .slick-arrow{
+    border: none;
+    font-size: 40px;
+    color: chocolate;
+  }
 
 
 </style>
@@ -57,7 +84,48 @@
   </section>
   <!--end of menu-->
 </header>
-
+<div class="container-sm" style="background-color: rgb(245, 244, 244); align-items: center; margin: 25px;float: left; ">
+  <div class="card" style="width: 18rem;margin-right: 9px;">
+    <div class="card-body">
+      <img src="https://lh3.googleusercontent.com/proxy/Gn7wU9X7cb-05kWa4CIpVRnjIa5LvDVAcNMt3N_fJt4atKwckHQj9lJIi8bApi0raovKvWAnIvQAGBtSq7oxLGgu_SAZOkkppFUeF5uiWzbK5jgx9uk" class="card-img-top" alt="...">
+      <h5 class="card-title">Cốm làng Vòng</h5>
+      <p class="card-text">Đặc sản hương sắc mùa thu Hà Nội, thơm ngon</p>
+      <a href="https://g.page/Com_Lang_Vong?share" class="btn btn-primary">Khám phá địa điểm</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;margin-right: 9px;">
+    <img src="https://baodansinh.mediacdn.vn/2021/1/20/10-1611115056322146355222.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Bún ốc nguội</h5>
+      <p class="card-text">Món ăn dân dã và chỉ riêng Hà Nội. Bún ốc ngọt mát</p>
+      <a href="https://goo.gl/maps/TsnqKc8YELgtJkJS9" class="btn btn-primary">Khám phá địa điểm</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;margin-right: 9px;">
+    <img src="https://dulichtoday.vn/wp-content/uploads/2019/03/dac-san-hue-banh-chung-nhat-le.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Bánh chưng Nhật Lệ</h5>
+      <p class="card-text"> Nhiều lò bánh thơm ngon ở đường phố xứ Huế</p>
+      <a href="https://goo.gl/maps/AsYkkVnSXZSiAZFZ8" class="btn btn-primary">Khám phá địa điểm</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;margin-right: 9px;">
+    <img src="https://diachiamthuc.vn/wp-content/uploads/2021/03/dac-san-da-lat.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Mứt Đà Lạt</h5>
+      <p class="card-text">Đặc sản nổi tiếng như mứt dâu,.. các loại mứt khác nhau.</p>
+      <a href="https://goo.gl/maps/SmNStG2oG89U94v98" class="btn btn-primary">Khám phá địa điểm</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;margin-right: 9px;">
+    <img src="https://images.foody.vn/res/g104/1034173/prof/s576x330/foody-upload-api-foody-mobile-banhmi-200703093224.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Bánh mì</h5>
+      <p class="card-text">Món ăn sáng đơn giản, nhanh gọn và quen thuộc</p>
+      <a href="https://goo.gl/maps/bFgr3Rju49e36fAT6" class="btn btn-primary">Khám phá địa điểm</a>
+    </div>
+  </div>
+</div>
 <main>
 
   <div class="container pt-5">
@@ -98,30 +166,50 @@
 </main>
 
 <jsp:include page="footer.jsp"></jsp:include>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
-  var slideIndex = 1;
-  showDivs(slideIndex);
+  $(document).ready(function(){
+    $('.container-sm').slick({
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              arrows:true,
+              prevArrow: '<div class="slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
+              nextArrow: '<div class="slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>',
+              responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                  }
+                },
+                {
+                  breakpoint: 700,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
 
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
+              ]
 
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    x[slideIndex-1].style.display = "block";
-  }
+            }
+    );
+  });
 </script>
+
 </body>
 
 </html>
