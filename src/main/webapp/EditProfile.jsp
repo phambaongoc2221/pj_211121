@@ -42,8 +42,8 @@
 
     .inputs span {
         font-size: 20px;
-        font-family: "Helvetica Neue";
-        font-weight: 600;
+        font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';
+        font-weight: 400;
         color: black;
     }
 
@@ -97,6 +97,7 @@
     <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-8">
             <div class="card py-5">
+                <span style="font-size: 30px; text-align: center; font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';" >Chỉnh sửa thông tin cá nhân<br><br></span>
                 <form action="editProfile" method="post">
                     <div class="inputs px-4"> <span >Tên đăng nhập</span> <input name="username" type="text" class="form-control" value="${profile.username}"> </div>
                     <div class="row mt-3 g-2">

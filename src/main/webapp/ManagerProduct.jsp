@@ -29,19 +29,19 @@
     </style>
 <body>
 
+
+
 <div class="container">
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-6">
-                    <h2><b>Quản lý sản phẩm</b></h2>
-                </div>
-                <div class="col-sm-6">
-                    <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm món ăn mới</span></a>
+
+                <div class="col-sm-6" >
+                    <a style="font-size: 25px; text-align: center;" href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm món ăn mới</span></a>
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" style="font-size: 16px">
             <thead>
             <tr>
                 <th>ID</th>
@@ -73,15 +73,15 @@
     </a>
 </div>
 
-<div id="addEmployeeModal" class="modal fade">
+<div id="addEmployeeModal" class="modal fade" style="font-size: 16px">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="add" method="post">
                 <div class="modal-header">
-                    <h4 class="modal-title">Thêm món ăn</h4>
+                    <h4 class="modal-title" style="font-size: 25px; font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';">Thêm món ăn</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif'; font-size: 18px">
                     <div class="form-group">
                         <label>Tên món ăn</label>
                         <input name="name" type="text" class="form-control" required>

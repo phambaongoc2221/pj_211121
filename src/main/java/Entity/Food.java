@@ -2,7 +2,7 @@ package Entity;
 
 import java.io.Serializable;
 
-public class Food implements Serializable {
+public class Food extends Category{
     int id;
     String name;
     String image;

@@ -22,8 +22,10 @@ public class DetailControl extends HttpServlet {
         FoodDAO dao = new FoodDAO();
         Food food = dao.getFoodByID(id);
         List<Comment> list = dao.getAllComment(id);
+        List<Food> listF = dao.getSameFood(id);
         request.setAttribute("detail", food);
         request.setAttribute("cmt",list);
+        request.setAttribute("listF", listF);
         HttpSession session = request.getSession();
         session.setAttribute("f",food);
         request.getRequestDispatcher("detail.jsp").forward(request,response);

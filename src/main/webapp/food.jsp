@@ -137,7 +137,7 @@
                 </div>
                 <c:if test="${sessionScope.acc != null}">
                   <div class="all-button" style="margin-top: 20px;"><hr>
-                    <button  type="button" class="btn button-1 btn-danger btn-cart"  style="margin-right: 15px;min-width: 100px;"><a href="add-to-cart?id=${o.id}" style="color: white; text-decoration: none">Thêm vào giỏ hàng</a></button>
+                    <button  type="button" class="btn button-1 btn-danger btn-cart"  style="margin-right: 15px;min-width: 100px; display: flex; margin: auto; text-align: center;justify-content: center"><a href="add-to-cart?id=${o.id}" style="color: white; text-decoration: none">Thêm vào giỏ hàng</a></button>
 
                   </div>
                 </c:if>

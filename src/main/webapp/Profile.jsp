@@ -47,16 +47,16 @@
         </ul>
       </div>
       <div class="col-md-6">
-        <strong><b style="font-size: 40px; font-family: 'Helvetica Neue'">THÔNG TIN CÁ NHÂN</b></strong><br>
-        <div class="table-responsive" style="font-family: 'Helvetica Neue'; font-size: 20px">
+        <p style="font-size: 30px ; text-align: center; font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif'; ">Thông tin cá nhân</p><br>
+        <div class="table-responsive" style="; font-size: 20px; font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';">
           <table class="table table-user-information">
             <tbody>
             <tr>
               <td>
-                <strong>
+
                   <span class="glyphicon glyphicon-asterisk text-primary"></span>
                   ID
-                </strong>
+
               </td>
               <td class="text-primary">
                 ${profile.uID}
@@ -64,10 +64,10 @@
             </tr>
             <tr>
               <td>
-                <strong>
+
                   <span class="glyphicon glyphicon-user  text-primary"></span>
                   Username
-                </strong>
+
               </td>
               <td class="text-primary">
                 ${profile.username}
@@ -75,10 +75,10 @@
             </tr>
             <tr>
               <td>
-                <strong>
+
                   <span class="glyphicon glyphicon-eye-open text-primary"></span>
                   Số điện thoại
-                </strong>
+
               </td>
               <td class="text-primary">
                 ${profile.soDT}
@@ -86,10 +86,10 @@
             </tr>
             <tr>
               <td>
-                <strong>
+
                   <span class="glyphicon glyphicon-envelope text-primary"></span>
                   Email
-                </strong>
+
               </td>
               <td class="text-primary">
                 ${profile.email}
@@ -97,10 +97,10 @@
             </tr>
             <tr>
               <td>
-                <strong>
+
                   <span class="glyphicon glyphicon-calendar text-primary"></span>
                   Vị trí
-                </strong>
+
               </td>
               <td class="text-primary">
                 <c:if test="${profile.isSell == 1}">
@@ -114,7 +114,7 @@
             </tr>
             </tbody>
           </table>
-          <button class="btn btn-warning btn-long buy" style="background-color: #dc3545;font-family: 'Helvetica Neue'; font-size: 20px"><a href="profile?uID=${profile.uID}" style="color: white">Chỉnh sửa trang cá nhân</a></button>
+          <button class="btn btn-warning btn-long buy" style="background-color: #dc3545; font-size: 20px"><a href="profile?uID=${profile.uID}" style="color: white">Chỉnh sửa trang cá nhân</a></button>
         </div>
       </div>
     </div>

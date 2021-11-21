@@ -132,7 +132,8 @@ public class FoodDAO {
 
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("select * from food");
+            PreparedStatement ps = con.prepareStatement("select * from food where cID = (select cID from food where id=?)");
+            ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Food food = new Food();
@@ -141,6 +142,8 @@ public class FoodDAO {
                 food.setImage(rs.getString("image"));
                 food.setPrice(rs.getFloat("price"));
                 food.setScript(rs.getString("script"));
+                food.setcID(rs.getInt("cID"));
+                //food.setCname(rs.getString("cname"));
                 list.add(food);
             }
         } catch (Exception e) {
@@ -512,6 +515,14 @@ public class FoodDAO {
         }
         return list;
 
+    }
+
+    public static void main(String[] args) {
+        FoodDAO dao = new FoodDAO();
+        List<Food> listF = dao.getSameFood("1");
+        for (Food o:listF){
+            System.out.println(o);
+        }
     }
 
 }

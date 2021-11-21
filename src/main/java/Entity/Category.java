@@ -1,8 +1,8 @@
 package Entity;
 
 public class Category {
-    private int cID;
-    private String cname;
+    public int cID;
+    public String cname;
 
     public Category() {
     }

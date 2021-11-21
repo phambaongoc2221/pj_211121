@@ -42,8 +42,8 @@
 
   .inputs span {
     font-size: 20px;
-    font-family: "Helvetica Neue";
-    font-weight: 600;
+    font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';
+    font-weight: 400;
     color: black;
   }
 
@@ -98,7 +98,7 @@
     <div class="col-md-8">
       <div class="card py-5">
         <form action="edit" method="post">
-          <h5 style="font-family: 'Helvetica Neue'; font-size: 30px"><strong>Chỉnh sửa sản phẩm</strong></h5>
+          <h5 style=" font-size: 30px; text-align: center; font-family: 'Nunito Sans', 'Helvetica Neue', 'sans-serif';">Chỉnh sửa sản phẩm</h5>
           <div class="row mt-3 g-2">
             <div class="col-md-6">
               <div class="inputs px-4"> <span >Mã món ăn</span> <input name="id" type="text" class="form-control" value="${detail.id}" readonly required> </div>
