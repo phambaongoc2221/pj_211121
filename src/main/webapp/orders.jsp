@@ -12,7 +12,7 @@
   if (auth != null) {
     request.setAttribute("person", auth);
     FoodDAO orderDao  = new FoodDAO();
-    orders =orderDao.userOrders(String.valueOf(auth.getuID()));
+    orders =orderDao.getOrderByUID(auth.getuID());
   }else{
     response.sendRedirect("login.jsp");
   }
@@ -38,12 +38,15 @@
   <table class="table table-light">
     <thead>
     <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Name</th>
+      <th scope="col">Ngày đặt</th>
+      <th scope="col">Tên món ăn</th>
 
-      <th scope="col">Quantity</th>
-      <th scope="col">Price</th>
-      <th scope="col">Cancel</th>
+      <th scope="col">Số lượng</th>
+      <th scope="col">Thành tiền</th>
+      <th scope="col">Người Nhận</th>
+      <th scope="col">Địa chỉ nhận</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -56,12 +59,17 @@
       <td><%=o.getName() %></td>
 
       <td><%=o.getQuantity() %></td>
-      <td><%=dcf.format(o.getPrice()) %></td>
-      <td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderID()%>">Cancel Order</a></td>
+      <td><%=dcf.format(o.getTotal()) %></td>
+      <td><%=o.getNguoiNhan() %></td>
+      <td><%=o.getDiaChiNhan() %></td>
+      <td><%=o.getSoDT() %></td>
+      <td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getId()%>">Cancel Order</a></td>
     </tr>
     <%}
     }
     %>
+
+
 
     </tbody>
   </table>

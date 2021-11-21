@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,6 +29,7 @@ public class OrderNowControl extends HttpServlet {
 
             Account auth = (Account) request.getSession().getAttribute("acc");
 
+
             if (auth != null) {
                 String productId = request.getParameter("id");
                 int productQuantity = Integer.parseInt(request.getParameter("quantity"));
@@ -39,6 +41,9 @@ public class OrderNowControl extends HttpServlet {
                 orderModel.setUserID(auth.getuID());
                 orderModel.setQuantity(productQuantity);
                 orderModel.setDateCreate(formatter.format(date));
+                orderModel.setNguoiNhan(request.getParameter("nguoiNhan"));
+                orderModel.setDiaChiNhan(request.getParameter("diaChiNhan"));
+                orderModel.setSoDT(request.getParameter("soDT"));
 
                 FoodDAO orderDao = new FoodDAO();
                 boolean result = orderDao.insertOrder(orderModel);
@@ -52,7 +57,7 @@ public class OrderNowControl extends HttpServlet {
                             }
                         }
                     }
-                    response.sendRedirect("orders.jsp");
+                    response.sendRedirect("checkout.jsp");
                 } else {
                     out.println("order failed");
                 }

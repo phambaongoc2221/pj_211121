@@ -1,0 +1,41 @@
+.bg-light{
+    background-color: /*#198754 !important*/  #dc3545 !important;
+}
+.mySlides {display:none;}
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #ccc;
+    border-color: /*#198754*/ black;
+}
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+.card{
+    display: block;
+    margin: 20px;
+    width: 200px;
+    flex: 1;
+}
+@media(min-width: 0px){
+    .card{
+        flex: 1 100%;
+    }
+}
+@media (min-width: 800px) {
+    .card{
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+
+    }
+}
+@media (min-width: 1000px) {
+    .card{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+}

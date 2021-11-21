@@ -1,21 +1,24 @@
 package Control;
 
 
-import DAO.FoodDAO;
-import Entity.Account;
-import Entity.Cart;
-import Entity.Item;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+
+import DAO.FoodDAO;
+import Entity.Account;
+import Entity.Cart;
+import Entity.Item;
 
 @WebServlet("/cart-check-out")
 public class CheckoutControl extends HttpServlet {
@@ -30,6 +33,9 @@ public class CheckoutControl extends HttpServlet {
             Date date = new Date();
             ArrayList<Item> cart_list = (ArrayList<Item>) request.getSession().getAttribute("cart-list");
             Account auth = (Account) request.getSession().getAttribute("acc");
+            String nguoiNhan = request.getParameter("nguoiNhan");
+            String diaChiNhan = request.getParameter("diaChiNhan");
+            String soDT = request.getParameter("soDT");
             if(cart_list != null && auth!=null) {
                 for(Item c:cart_list) {
                     Cart order = new Cart();
@@ -37,13 +43,17 @@ public class CheckoutControl extends HttpServlet {
                     order.setUserID(auth.getuID());
                     order.setQuantity(c.getQuantity());
                     order.setDateCreate(formatter.format(date));
+                    order.setNguoiNhan(request.getParameter("nguoiNhan"));
+                    order.setDiaChiNhan(request.getParameter("diaChiNhan"));
+                    order.setSoDT(request.getParameter("soDT"));
+
 
                     FoodDAO oDao = new FoodDAO();
                     boolean result = oDao.insertOrder(order);
                     if(!result) break;
                 }
                 cart_list.clear();
-                response.sendRedirect("orders.jsp");
+                response.sendRedirect("finish.jsp");
             }else {
                 if(auth==null) {
                     response.sendRedirect("login.jsp");

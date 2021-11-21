@@ -38,12 +38,13 @@
       font-size: 25px;
     }
   </style>
+  <jsp:include page="menu.jsp"></jsp:include>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
+
 
 <div class="container my-3">
-  <div class="d-flex py-3"><h3>Total Price: vnd ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+  <div class="d-flex py-3"><h3>Total Price: vnd ${(total>0)?dcf.format(total):0} </h3> </div>
   <table class="table table-light">
     <thead>
     <tr>
@@ -68,7 +69,7 @@
             <input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly>
             <a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
           </div>
-          <td><button type="submit" class="btn btn-primary btn-sm">Buy</button></td>
+
         </form>
       </td>
       <td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
@@ -80,6 +81,59 @@
   </table>
 </div>
 
+<div class="container mt-5 px-5">
+  <div class="mb-4">
+    <h2>Thông tin đặt hàng</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card p-3">
+        <form action="/cart-check-out" method="post">
+          <h6 class="text-uppercase">Thông tin đặt hàng</h6>
+          <span>Người nhận hàng</span>
+          <div class="inputbox mt-3"> <input type="text" name="nguoiNhan" class="form-control" required="required"></div>
+          <div class="row">
+            <div class="col-md-6">
+              <span>Địa chỉ nhận hàng</span>
+              <div class="inputbox mt-3 mr-2"> <input type="text" name="diaChiNhan" class="form-control" required="required"></div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <span>Số điện thoại</span>
+              <div class="inputbox mt-3 mr-2"> <input type="text" name="soDT" class="form-control" required="required"></div>
+            </div>
+            <div class="col-md-6">
+              <div class="inputbox mt-3 mr-2">
+                <select>
+                  <option>Thanh toán khi nhận hàng</option>
+                  <option>Thanh toán ngân hàng</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn btn-success" value="Đặt hàng">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card card-cascade card-ecommerce wider shadow p-3 mb-5 ">
+        <!--Card Body-->
+        <div class="card-body card-body-cascade">
+          <!--Card Description-->
+          <div class="card2decs">
+            <p class="heading1"><strong>HÓA ĐƠN</strong></p>
+            <p class="subtotal">Tổng tiền hàng<span class="float-right text1">${(total>0)?dcf.format(total):0}VNĐ</span></p>
+            <p class="shipping">Phí vận chuyển<span class="float-right text1">Miễn phí</span></p>
+            <p class="total"><strong>Tổng thanh toán</strong><span class="float-right totalText1"><span class="totalText2">${(total>0)?dcf.format(total):0}VNĐ</span></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

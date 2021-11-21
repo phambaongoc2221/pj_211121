@@ -37,17 +37,14 @@
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#dc3545 !important">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#"><i class="fas fa-store" style="margin: 5px;"></i>VNFood</a>
+    <a class="navbar-brand text-white" href="/"><i class="fas fa-store" style="margin: 5px;"></i>VNFood</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="/">Trang chủ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Về chúng tôi</a>
+          <a class="nav-link text-white" href="/">Về chúng tôi</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarLightDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,12 +66,16 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
             <li><a class="dropdown-item" href="/loadProfile">Thiết lập tài khoản</a></li>
+            <li><a class="dropdown-item" href="orders.jsp">Đơn hàng</a></li>
             <c:if test="${sessionScope.acc.isSell == 1}">
-              <li><a class="dropdown-item" href="managerP">Quản lý sản phẩm</a></li>
+              <li class="nav-item">
+                <a class="dropdown-item" href="managerP">Quản lý sản phẩm</a>
+              </li>
             </c:if>
           </ul>
         </li>
         </c:if>
+
       </ul>
       <form class="d-flex" method="get" action="/search">
         <input name="txt" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="margin: 5px;">

@@ -11,7 +11,7 @@ public class FoodDAO {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodweb", "root", "tra11032001");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodweb", "root", "Phambaongoc2221");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -127,6 +127,27 @@ public class FoodDAO {
         return null;
     }
 
+    public static List<Food> getSameFood(String id) {
+        List<Food> list = new ArrayList<Food>();
+
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("select * from food");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Food food = new Food();
+                food.setId(rs.getInt("id"));
+                food.setName(rs.getString("name"));
+                food.setImage(rs.getString("image"));
+                food.setPrice(rs.getFloat("price"));
+                food.setScript(rs.getString("script"));
+                list.add(food);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
     public static List<Food> getFoodByName(String txtSearch) {
         List<Food> list = new ArrayList<Food>();
 
@@ -230,18 +251,17 @@ public class FoodDAO {
         }
         return null;
     }
-    public void editAcount( String username, String password, String soDT, String avatar, String email, String isSell, String isAdmin, String uID){
+    public void editAcount( String username, String password, String soDT, String avatar, String email,  int uID){
         try{
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("UPDATE account SET username=?, password=?, soDT=?, avatar=?, email=?, isSell=?, isAdmin=? WHERE uID=?");
+            PreparedStatement ps = con.prepareStatement("UPDATE account SET username=?, password=?, soDT=?, avatar=?, email=? WHERE uID=?");
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, soDT);
             ps.setString(4, avatar);
             ps.setString(5, email);
-            ps.setString(6, isSell);
-            ps.setString(7, isAdmin);
-            ps.setString(8, uID);
+
+            ps.setInt(6, uID);
             ps.executeUpdate();
         }catch (Exception e){
 
@@ -407,11 +427,14 @@ public class FoodDAO {
         Connection conn = getConnection();
         boolean result = false;
         try {
-            PreparedStatement pst = conn.prepareStatement("insert into CART (uID,id,DateCreate,Quantity) values(?,?,?,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into CART (uID,id,DateCreate,Quantity, nguoiNhan, diaChiNhan, soDT) values(?,?,?,?,?,?,?)");
             pst.setInt(1, model.getUserID());
             pst.setInt(2, model.getId());
             pst.setString(3, model.getDateCreate());
             pst.setInt(4, model.getQuantity());
+            pst.setString(5, model.getNguoiNhan());
+            pst.setString(6, model.getDiaChiNhan());
+            pst.setString(7, model.getSoDT());
             pst.executeUpdate();
             result = true;
         } catch (SQLException e) {
@@ -461,6 +484,34 @@ public class FoodDAO {
             System.out.print(e.getMessage());
         }
         //return result;
+    }
+
+    public static List<Cart> getOrderByUID(int uID) {
+        List<Cart> list = new ArrayList<Cart>();
+
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("select CART.uID, CART.id, CART.DateCreate, food.name, CART.Quantity, (CART.Quantity * food.price) as total, CART.nguoiNhan,  CART.diaChiNhan, CART.soDT from CART, food where CART.id = food.id AND CART.uID = ?;");
+            ps.setInt(1, uID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Cart cart = new Cart();
+                cart.setUserID(rs.getInt(1));
+                cart.setId(rs.getInt(2));
+                cart.setDateCreate(rs.getString(3));
+                cart.setName(rs.getString(4));
+                cart.setQuantity(rs.getInt(5));
+                cart.setTotal(rs.getFloat(6));
+                cart.setNguoiNhan(rs.getString(7));
+                cart.setDiaChiNhan(rs.getString(8));
+                cart.setSoDT(rs.getString(9));
+                list.add(cart);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+
     }
 
 }

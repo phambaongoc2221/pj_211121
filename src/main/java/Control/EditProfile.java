@@ -1,6 +1,7 @@
 package Control;
 
 import DAO.FoodDAO;
+import Entity.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,20 +18,20 @@ public class EditProfile extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        //Account account = (Account) session.getAttribute("acc");
-        //int uID = account.getuID();
-        String uID = request.getParameter("uID");
+        Account account = (Account) session.getAttribute("acc");
+        int uID = account.getuID();
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String soDT = request.getParameter("soDT");
         String avatar = request.getParameter("avatar");
         String email = request.getParameter("email");
-        String isSell = request.getParameter("isSell");
-        String isAdmin = request.getParameter("isAdmin");
+        //String isSell = request.getParameter("isSell");
+        //String isAdmin = request.getParameter("isAdmin");
 
 
         FoodDAO dao = new FoodDAO();
-        dao.editAcount(username,password,soDT,avatar,email,isSell, isAdmin, uID);
+        dao.editAcount(username,password,soDT,avatar,email, uID);
         response.sendRedirect("/loadProfile");
 
     }
